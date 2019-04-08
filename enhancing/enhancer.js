@@ -14,7 +14,15 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  const { enhancement, durability } = item;
+
+  if (enhancement < 15) {
+    return { ...item, durability: durability - 5 };
+  } else if (enhancement > 16) {
+    return { ...item, enhancement: enhancement - 1, durability: durability - 10 };
+  } else {
+    return { ...item, durability: durability - 10 };
+  }
 }
 
 function repair(item) {

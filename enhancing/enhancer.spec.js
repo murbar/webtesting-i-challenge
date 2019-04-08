@@ -24,3 +24,21 @@ describe('succeed', () => {
     expect(durability).toBe(50);
   });
 });
+
+describe('fail', () => {
+  it('should decrement durability by 5 if enhancement is less than 15', () => {
+    const { durability } = enhancer.fail({ enhancement: 10, durability: 10 });
+    expect(durability).toBe(5);
+  });
+
+  it('should decrement durability by 10 if enhancement is greater than or equal to 15', () => {
+    const { durability } = enhancer.fail({ enhancement: 16, durability: 15 });
+    expect(durability).toBe(5);
+  });
+
+  it('should also decrement enhancement by 1 if enhancement is greater than 16', () => {
+    const { enhancement, durability } = enhancer.fail({ enhancement: 18, durability: 15 });
+    expect(durability).toBe(5);
+    expect(enhancement).toBe(17);
+  });
+});
