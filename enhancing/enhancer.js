@@ -2,7 +2,7 @@ module.exports = {
   succeed,
   fail,
   repair,
-  get,
+  get
 };
 
 function succeed(item) {
@@ -30,5 +30,9 @@ function repair(item) {
 }
 
 function get(item) {
+  const { enhancement, name } = item;
+
+  if (enhancement > 0) return { ...item, name: `[+${enhancement}] ${name}` };
+
   return { ...item };
 }
