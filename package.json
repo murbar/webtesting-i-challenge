@@ -1,0 +1,12 @@
+{
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/murbar/webtesting-i-challenge.git",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "scripts": {
+    "test": "jest --watch"
+  }
+}
